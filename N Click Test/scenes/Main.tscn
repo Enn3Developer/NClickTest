@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 246.178
+margin_top = 246.805
+margin_right = 739.178
+margin_bottom = 461.805
+text = "Click here"
+
+[node name="CPS" type="Label" parent="."]
+margin_left = 73.0
+margin_top = 87.0
+margin_right = 180.0
+margin_bottom = 131.0
+text = "CPS: "
+
+[node name="Average" type="Label" parent="."]
+margin_left = 666.399
+margin_top = 89.7114
+margin_right = 879.399
+margin_bottom = 125.711
+text = "Average CPS: "
+
+[node name="Stop" type="Button" parent="."]
+margin_left = 34.2804
+margin_top = 521.592
+margin_right = 218.28
+margin_bottom = 568.592
+text = "Stop"
+
+[node name="Best" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 93.0
+margin_right = 424.0
+margin_bottom = 118.0
+text = "Best: "
+
+[node name="Author" type="Label" parent="."]
+margin_left = 728.0
+margin_top = 540.0
+margin_right = 984.0
+margin_bottom = 592.0
+text = "Author: Enn3DevPlayer
+Version: 1.0"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Stop" to="." method="_on_Stop_pressed"]
