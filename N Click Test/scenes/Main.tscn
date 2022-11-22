@@ -1,56 +1,126 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://fonts/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 2 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = -3.0
+margin_right = -5.0
+margin_bottom = -3.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 246.178
-margin_top = 246.805
-margin_right = 739.178
-margin_bottom = 461.805
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -315.0
+margin_top = -169.0
+margin_right = 325.0
+margin_bottom = 215.0
+custom_fonts/font = SubResource( 1 )
+button_mask = 3
 text = "Click here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CPS" type="Label" parent="."]
-margin_left = 73.0
-margin_top = 87.0
-margin_right = 180.0
-margin_bottom = 131.0
+margin_left = 65.0
+margin_top = 27.5367
+margin_right = 172.0
+margin_bottom = 71.5367
+custom_fonts/font = SubResource( 2 )
 text = "CPS: "
 
 [node name="Average" type="Label" parent="."]
-margin_left = 666.399
-margin_top = 89.7114
-margin_right = 879.399
-margin_bottom = 125.711
+margin_left = 492.591
+margin_top = 30.2481
+margin_right = 705.591
+margin_bottom = 66.2477
+custom_fonts/font = SubResource( 3 )
 text = "Average CPS: "
-
-[node name="Stop" type="Button" parent="."]
-margin_left = 34.2804
-margin_top = 521.592
-margin_right = 218.28
-margin_bottom = 568.592
-text = "Stop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Best" type="Label" parent="."]
-margin_left = 320.0
-margin_top = 93.0
-margin_right = 424.0
-margin_bottom = 118.0
+margin_left = 274.316
+margin_top = 26.0
+margin_right = 378.316
+margin_bottom = 50.9997
+custom_fonts/font = SubResource( 5 )
 text = "Best: "
 
 [node name="Author" type="Label" parent="."]
-margin_left = 728.0
-margin_top = 540.0
-margin_right = 984.0
-margin_bottom = 592.0
+margin_left = 813.0
+margin_top = 555.0
+margin_right = 1029.0
+margin_bottom = 603.0
+custom_fonts/font = SubResource( 6 )
 text = "Author: Enn3DevPlayer
-Version: 1.0"
+Version: 1.1"
+
+[node name="Time" type="Label" parent="."]
+margin_left = 802.732
+margin_top = 26.5514
+margin_right = 932.732
+margin_bottom = 47.5514
+custom_fonts/font = SubResource( 7 )
+text = "Time past:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StopTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 115.741
+margin_top = 71.5367
+margin_right = 189.741
+margin_bottom = 95.5367
+value = 10.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 73.2657
+margin_right = 111.0
+margin_bottom = 94.2657
+custom_fonts/font = SubResource( 8 )
+text = "Timer"
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Stop" to="." method="_on_Stop_pressed"]
+[connection signal="timeout" from="ClickTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="StopTimer" to="." method="_on_StopTimer_timeout"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_SpinBox_value_changed"]
