@@ -45,9 +45,7 @@ func _process(delta):
 	if running:
 		time_past += delta if clicks > 0 else 0
 		average_cps = round_to_dec(clicks / time_past, 1) if time_past else 0
-# warning-ignore:incompatible_ternary
-		cps = 1000 / time_past_between_clicks if time_past_between_clicks != INF else 0
-		cps = round_to_dec(cps, 1)
+		cps = round_to_dec(clicks / time_past, 2) if time_past > 0.5 else 0
 		best_cps = cps if cps > best_cps else best_cps
 	
 #	Change texts in labels

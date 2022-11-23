@@ -18,3 +18,16 @@ config/name="N Click Test"
 run/main_scene="res://scenes/Main.tscn"
 run/disable_stdout=true
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=1000
+settings/stdout/print_fps=true
+
+[display]
+
+window/vsync/use_vsync=false
+
+[rendering]
+
+threads/thread_model=2
